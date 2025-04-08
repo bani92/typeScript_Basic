@@ -1,16 +1,14 @@
 let user: {
-    id? : number;
-    name: string;
+  id?: number;
+  name: string;
 } = {
-    id: 1,
-    name: "bani",
-}
+  id: 1,
+  name: "bani",
+};
 // 객체 리터럴타입
 
 let config: {
-    readonly apiKey: string;
+  readonly apiKey: string;
 } = {
-    apiKey: "MY API KEY"
+  apiKey: "MY API KEY",
 };
-
-config.apiKey = "hacked";
