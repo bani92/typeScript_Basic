@@ -1,29 +1,31 @@
-// enum 타입
-// 여러가지 값들에 각각 이름을 부여해 열거해두고 사용하는 타입
+/**
+ * 타입 추론
+ */
 
-enum Role {
-  ADMIN = 0,
-  USER = 1,
-  GUEST = 2,
-}
-
-enum Language {
-  korean = "KO",
-  english = "EN",
-}
-
-const user1 = {
-  name: "ban",
-  role: Role.ADMIN,
-  language: Language.korean,
-};
-const user2 = {
+let a = 10;
+let b = "hello";
+let c = {
+  id: 1,
   name: "hong",
-  role: Role.USER,
-};
-const user3 = {
-  name: "default",
-  role: Role.GUEST,
+  profile: {
+    nickname: "witer",
+  },
 };
 
-console.log(user1, user2, user3);
+let [one, two, three] = [1, "hello", false];
+
+function func(message = "hello") {
+  return "hello";
+}
+
+let d;
+d = 10;
+d.toFixed();
+
+d = "hello";
+d.toUpperCase();
+
+const num = 10;
+const str = "hello";
+
+let arr = [1, "string"]; // union 타입
