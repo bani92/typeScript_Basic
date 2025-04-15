@@ -1,23 +1,29 @@
-// void
-// 아무것도 없음을 의미하는 타입
+/**
+ * 타입 좁히기
+ * 조건문 등을 이용해 넓은 타입에서 좁은 타입으로
+ * 타입을 상황에 따라 좁히는 방법을 이야기
+ */
 
-function func1(): string {
-  return "hello";
+type Person = {
+  name: string;
+  age: number;
+};
+
+// value => number : toFixed
+// value => string : toUpperCase
+// value => Date : getTime
+// value => Person : name은 age살 입니다.
+function func(value: number | string | Date | null | Person) {
+  if (typeof value === "number") {
+    console.log(value.toFixed());
+  } else if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else if (value instanceof Date) {
+    console.log(value.getTime());
+  } else if (value && "age" in value) {
+    // age가 null 일수도 있기때문에 in 에서 오류 발생 우려
+    console.log(`${value.name}은 ${value.age}살 입니다`);
+  }
+  // else if (value instanceof Person) { // 불가능
+  // }
 }
-
-function fun2(): void {
-  console.log("hello");
-}
-
-// never
-// 불가능한 타입
-function func3(): never {
-  throw new Error();
-}
-
-// 타입호환성
-let num1: number = 10;
-let num2: 10 = 10;
-
-num1 = num2;
-// num2 = num1; 불가능(리터럴타입에는 넣을 수 없음, 다운캐스팅)
