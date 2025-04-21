@@ -29,7 +29,7 @@ function warning(animal: Animal) {
     //   } else if ("isScrath" in animal) {
     //     animal; 이거는 isScrath 가 변경되면 수정해줘야하기때문에 유지보수성이 떨어짐
     //     }
-  } else if ("isScrath" in animal) {
+  } else if (isCat(animal)) {
     animal; // 타입 cat
   }
 }

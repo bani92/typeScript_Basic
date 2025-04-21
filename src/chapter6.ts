@@ -62,4 +62,4 @@ let post: Post = {
   author: "hong",
 };
 
-const len: number = post.author?.length; // 옵셔널 체이닝
+const len: number | undefined = post.author?.length; // 옵셔널 체이닝

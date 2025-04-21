@@ -38,22 +38,22 @@ function login(user: User) {
 }
 
 type LoadingTask = {
-    state: "LOADING";
-}
+  state: "LOADING";
+};
 
 type FailedTask = {
-    state: "FAILED";
-    error: {
-        message: string;
-    },
-}
+  state: "FAILED";
+  error: {
+    message: string;
+  };
+};
 
 type SuccessTask = {
-    state: "SUCCESS";
-    response: {
-        data: string;
-    };
-}
+  state: "SUCCESS";
+  response: {
+    data: string;
+  };
+};
 
 // 기존코드
 // type AsyncTask = {
@@ -67,24 +67,25 @@ type SuccessTask = {
 // };
 
 // 신규코드
-type AsyncTask = LoadingTask | FailedTask | SuccessTask
+type AsyncTask = LoadingTask | FailedTask | SuccessTask;
 
 // 로딩 중 -> 콘솔에 로딩중 출력
 // 실패 -> 실패 에러메시지 출력
 // 성공 -> 성공 데이터 출력
 function processResult(task: AsyncTask) {
   switch (task.state) {
-      case "LOADING": {
-          console.log("로딩중...");
-          break;
+    case "LOADING": {
+      console.log("로딩중...");
+      break;
     }
-      case "FAILED": {
-          console.log(`에러 발생 : ${task.error.message}`);
-          break;
+    case "FAILED": {
+      console.log(`에러 발생 : ${task.error.message}`);
+      break;
     }
-      case "SUCCESS": {
-          console.log(`성공 : ${task.response.data}`);
-          break;
+    case "SUCCESS": {
+      console.log(`성공 : ${task.response.data}`);
+      break;
+    }
   }
 }
 
